@@ -37,6 +37,40 @@ public void assignBoard()
 			}
 			
 		} 
+			public void userMoveLocation() {
+			System.out.println("Enter the index from 1 to 9");
+			try {
+				Scanner input = new Scanner(System.in);
+				int userIndex = input.nextInt();
+				if (userIndex >= 10 || userIndex <= 0) {
+					System.out.println("Enter a valid index number");
+					userMoveLocation();
+				}
+				else {
+					if ( board[userIndex]  != ' ') {
+						System.out.println("It is already filled, enter a correct index");
+						userMoveLocation();
+					}
+					else {
+						moveLocation(userIndex);
+					}
+				}
+			}
+			catch(Exception e){
+				System.out.println("Enter a correct option");
+				userMoveLocation();
+			}
+		}
+	
+		public void moveLocation(int userIndex) {
+			board[userIndex]=playerCharactor;
+			showBoard();
+			for(int i = 1 ; i < 10 ; i++) {
+				if ( board[i] == ' ') {
+					userMoveLocation();
+				}
+			}
+		}
 	public static void main(String[] args) {
 		System.out.println("Welcome to TicTacToe Game");
 		TicTacToeGame game = new TicTacToeGame();
@@ -45,5 +79,6 @@ public void assignBoard()
 		System.out.println("player charater is -" +playerCharactor + 
 					" computer character is - "+cpuCharactor);
 		game.showBoard();
+		game.userMoveLocation();
 	}
 }
