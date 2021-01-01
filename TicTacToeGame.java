@@ -1,4 +1,5 @@
 package TicTacToe;
+import java.util.Scanner;
 public class TicTacToeGame {
 	char[] board;
 	static char playerCharactor,cpuCharactor;
@@ -28,6 +29,14 @@ public void assignBoard()
 				userInput();
 			}
 		}
+	public void showBoard(){
+			System.out.println("The game Board");
+			for (int i = 1 ; i < 10 ; i+=3) {
+				System.out.println(board[i]+" | " +board[i+1]+" | "+board[i+2]);
+				System.out.println("--+---+--");
+			}
+			
+		} 
 	public static void main(String[] args) {
 		System.out.println("Welcome to TicTacToe Game");
 		TicTacToeGame game = new TicTacToeGame();
@@ -35,5 +44,6 @@ public void assignBoard()
 		game.userInput();
 		System.out.println("player charater is -" +playerCharactor + 
 					" computer character is - "+cpuCharactor);
+		game.showBoard();
 	}
 }
