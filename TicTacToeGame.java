@@ -71,6 +71,14 @@ public void assignBoard()
 				}
 			}
 		}
+		public void toss(){
+			int Head = 1;
+			double check = Math.floor(Math.random() * 10) % 2;
+		if(check == Head )
+			System.out.println("player plays first");
+		else
+			System.out.println("Computer plays first");
+		}
 	public static void main(String[] args) {
 		System.out.println("Welcome to TicTacToe Game");
 		TicTacToeGame game = new TicTacToeGame();
@@ -79,6 +87,7 @@ public void assignBoard()
 		System.out.println("player charater is -" +playerCharactor + 
 					" computer character is - "+cpuCharactor);
 		game.showBoard();
+		game.toss();
 		game.userMoveLocation();
 	}
 }
